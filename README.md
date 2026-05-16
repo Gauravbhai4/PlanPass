@@ -20,7 +20,7 @@ This is a local, runnable prototype built on Python + FastAPI + Azure OpenAI.
 ### 1. Clone / open this folder
 
 ```bash
-cd crossbeam-india
+cd PlanPass-india
 ```
 
 ### 2. Create a virtual environment and install dependencies
@@ -116,7 +116,7 @@ A sample corrections letter text is available at `samples/sample_corrections_let
 ## Project Structure
 
 ```
-crossbeam-india/
+Permit Setu-india/
 ├── main.py                       # FastAPI entry point
 ├── requirements.txt              # Python dependencies
 ├── .env.example                  # Azure OpenAI config template
@@ -251,4 +251,4 @@ This is normal for the corrections flow — the model is reading the full rules 
 
 ## License
 
-This is a prototype derived from the original CrossBeam (California ADU permit assistant) architecture. Adapt freely for your purposes.
+This is a prototype derived from the original Permit Setu (California ADU permit assistant) architecture. Adapt freely for your purposes.
