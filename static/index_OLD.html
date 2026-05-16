@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrossBeam-India · BBMP/GBA Compliance</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+<body>
+  <div class="app">
+    <!-- ============= SIDEBAR ============= -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">CrossBeam</div>
+          <div class="brand-sub">India · v0.2</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <div class="nav-section">
+          <div class="nav-section-label">Workspace</div>
+          <button class="nav-item active" data-view="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-item" data-view="checklist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            <span>Pre-Submission Check</span>
+          </button>
+          <button class="nav-item" data-view="corrections">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Corrections Response</span>
+          </button>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-label">Reference</div>
+          <button class="nav-item" data-view="samples">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Sample Library</span>
+          </button>
+          <button class="nav-item" data-view="rules">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Karnataka Rules</span>
+          </button>
+          <button class="nav-item" data-view="about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span>About</span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div id="health-card" class="health-card">
+          <div class="health-dot pending"></div>
+          <div class="health-text">
+            <div class="health-status">Checking…</div>
+            <div class="health-sub">Azure OpenAI</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ============= MAIN ============= -->
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1 id="page-title" class="page-title">Dashboard</h1>
+          <div id="page-sub" class="page-sub">AI-powered BBMP / GBA building plan compliance assistant</div>
+        </div>
+        <div class="topbar-right">
+          <a href="/docs" target="_blank" class="ghost-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            API Docs
+          </a>
+        </div>
+      </header>
+
+      <!-- ============= VIEW: DASHBOARD ============= -->
+      <section id="view-dashboard" class="view active">
+        <div class="hero-card">
+          <div class="hero-text">
+            <div class="eyebrow">Bengaluru · January 2026 Zonal Regulations</div>
+            <h2>Get BBMP approval on the first try.</h2>
+            <p>CrossBeam-India reads your plan PDFs page-by-page with vision, parses BBMP/GBA corrections letters, and grounds every response in the Karnataka Town &amp; Country Planning Act and the amended 2026 Zonal Regulations.</p>
+            <div class="hero-ctas">
+              <button class="primary-btn" data-go="checklist">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Run a pre-submission check
+              </button>
+              <button class="ghost-btn" data-go="corrections">Upload corrections letter →</button>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <div class="big-stat">
+              <div class="big-stat-num">35-40<span class="pct">%</span></div>
+              <div class="big-stat-label">of BBMP first submissions face objections</div>
+              <div class="big-stat-source">Source: Bengaluru architect surveys, 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div class="stat-num">9</div>
+            <div class="stat-label">Skill files loaded</div>
+            <div class="stat-sub">26,838 chars of Karnataka rules</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+            <div id="dash-deployment" class="stat-num small">—</div>
+            <div class="stat-label">Active deployment</div>
+            <div id="dash-apiversion" class="stat-sub">—</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="stat-num">30-45<span class="pct">d</span></div>
+            <div class="stat-label">Typical approval timeline</div>
+            <div class="stat-sub">Sakala deemed approval after 30 days</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="stat-num">₹12L<span class="pct">+</span></div>
+            <div class="stat-label">Cost of one setback miss</div>
+            <div class="stat-sub">Reconstruction after rejection</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <h3>How CrossBeam works</h3>
+            </div>
+            <div class="flow-list">
+              <div class="flow-row">
+                <div class="flow-num">1</div>
+                <div class="flow-detail">
+                  <div class="flow-title">Pre-submission check</div>
+                  <div class="flow-desc">Enter plot details. The agent applies the 2026 Zonal Regulations, KTCP Act, and decision-tree router to produce a compliance checklist with the exact setbacks, FAR, NOCs, and gotchas for your project.</div>
+                </div>
+              </div>
+              <div class="flow-row">
+                <div class="flow-num">2</div>
+                <div class="flow-detail">
+                  <div class="flow-title">Corrections response (with vision)</div>
+                  <div class="flow-desc">Upload the BBMP corrections letter and your plan PDF. The vision agent reads each plan sheet, extracts measurements, and the corrections agent drafts a full response package: letter, sheet markups, drafting scope, and open questions.</div>
+                </div>
+              </div>
+              <div class="flow-row">
+                <div class="flow-num">3</div>
+                <div class="flow-detail">
+                  <div class="flow-title">Skills-grounded reasoning</div>
+                  <div class="flow-desc">9 markdown reference files encode all Karnataka rules. When BBMP updates a regulation, you edit a file — no retraining, no redeployment.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Quick reference</h3>
+              <button class="link-btn" data-go="rules">View all →</button>
+            </div>
+            <div class="ref-list">
+              <div class="ref-item">
+                <div class="ref-key">Min front setback</div>
+                <div class="ref-val">0.75 m</div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">Min side setback</div>
+                <div class="ref-val">0.6 m <span class="ref-meta">(plots ≤ 600 sq ft)</span></div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">Base FAR (R zone)</div>
+                <div class="ref-val">1.75</div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">Nambike Nakshe limit</div>
+                <div class="ref-val">50 × 80 ft</div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">EV parking mandate</div>
+                <div class="ref-val">20% of spaces</div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">OC exemption</div>
+                <div class="ref-val">≤ 1,200 sq ft</div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">Deemed approval</div>
+                <div class="ref-val">30 working days</div>
+              </div>
+              <div class="ref-item">
+                <div class="ref-key">E-Khata mandatory</div>
+                <div class="ref-val">since 1 Jul 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============= VIEW: CHECKLIST (Flow 2) ============= -->
+      <section id="view-checklist" class="view">
+        <div class="view-intro">
+          <h2>Pre-Submission Compliance Check</h2>
+          <p>Enter your residential project details. The agent produces a BBMP/GBA-compliance checklist using the amended 2026 Zonal Regulations.</p>
+        </div>
+
+        <div class="sample-bar">
+          <span class="sample-bar-label">Load sample:</span>
+          <button class="chip" data-sample="compliant">Compliant 30×40 Whitefield</button>
+          <button class="chip" data-sample="blocker">B-Khata blocker</button>
+          <button class="chip" data-sample="marginal">Narrow-road Stilt+4</button>
+        </div>
+
+        <form id="checklist-form" class="form-card">
+          <div class="form-section">
+            <div class="form-section-head">
+              <div class="form-section-num">01</div>
+              <div>
+                <div class="form-section-title">Plot details</div>
+                <div class="form-section-sub">Survey-verified dimensions and zone</div>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">Plot dimensions</span>
+                <input name="plot_dimensions" value="30x40" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Plot area (sq ft)</span>
+                <input name="plot_area_sqft" value="1200" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Land use zone</span>
+                <select name="zone">
+                  <option>R (Residential single-family)</option>
+                  <option>RM-1 (Residential mixed low density)</option>
+                  <option>RM-2 (Residential mixed high density)</option>
+                  <option>C (Commercial)</option>
+                  <option>Mixed-use</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Khata type</span>
+                <select name="khata_type">
+                  <option>A-Khata (with E-Khata)</option>
+                  <option>B-Khata</option>
+                  <option>E-Khata only</option>
+                  <option>Not sure</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Road width facing plot (ft)</span>
+                <input name="road_width_ft" value="30" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Location</span>
+                <input name="location" value="Whitefield, Bengaluru" />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-head">
+              <div class="form-section-num">02</div>
+              <div>
+                <div class="form-section-title">Construction details</div>
+                <div class="form-section-sub">What you intend to build</div>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">Construction type</span>
+                <select name="construction_type">
+                  <option>New construction</option>
+                  <option>Vertical extension</option>
+                  <option>Horizontal extension</option>
+                  <option>Renovation</option>
+                  <option>Demolish and rebuild</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Proposed floors</span>
+                <select name="proposed_floors">
+                  <option>G+0</option>
+                  <option>G+1</option>
+                  <option selected>G+2</option>
+                  <option>G+3</option>
+                  <option>Stilt+4</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Proposed built-up area (sq ft)</span>
+                <input name="built_up_area_sqft" value="2000" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Number of dwelling units</span>
+                <input name="num_units" value="1" required />
+              </label>
+              <label class="field full">
+                <span class="field-label">Special conditions</span>
+                <input name="special_conditions" value="None" placeholder="Adjacent to lake, heritage zone, etc." />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              Generate Compliance Checklist
+            </button>
+            <div id="checklist-status" class="status"></div>
+          </div>
+        </form>
+
+        <div id="checklist-output" class="output"></div>
+      </section>
+
+      <!-- ============= VIEW: CORRECTIONS (Flow 1) ============= -->
+      <section id="view-corrections" class="view">
+        <div class="view-intro">
+          <h2>Corrections Letter Interpreter</h2>
+          <p>Upload your BBMP corrections letter PDF. Optionally also upload the plan PDF — the agent will read each sheet with vision (gpt-4o / gpt-5.2) to extract measurements and flag compliance issues.</p>
+        </div>
+
+        <form id="corrections-form" enctype="multipart/form-data" class="form-card">
+          <div class="form-section">
+            <div class="form-section-head">
+              <div class="form-section-num">01</div>
+              <div>
+                <div class="form-section-title">Upload documents</div>
+                <div class="form-section-sub">Corrections letter required; plan PDF optional</div>
+              </div>
+            </div>
+            <div class="upload-grid">
+              <label class="upload-tile">
+                <input type="file" name="corrections_pdf" accept="application/pdf" required />
+                <div class="upload-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div class="upload-title">Corrections letter PDF</div>
+                <div class="upload-sub">Required · text-based PDF from BBMP</div>
+                <div class="upload-filename" data-for="corrections_pdf">No file selected</div>
+              </label>
+              <label class="upload-tile">
+                <input type="file" name="plan_pdf" accept="application/pdf" />
+                <div class="upload-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="upload-title">Plan PDF</div>
+                <div class="upload-sub">Optional · read with vision</div>
+                <div class="upload-filename" data-for="plan_pdf">No file selected</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-head">
+              <div class="form-section-num">02</div>
+              <div>
+                <div class="form-section-title">Project context</div>
+                <div class="form-section-sub">Helps the agent ground its analysis</div>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label class="field"><span class="field-label">Plot dimensions</span><input name="plot_dimensions" value="30x40" /></label>
+              <label class="field"><span class="field-label">Land use zone</span><input name="zone" value="R (Residential)" /></label>
+              <label class="field"><span class="field-label">Khata type</span><input name="khata_type" value="A-Khata" /></label>
+              <label class="field"><span class="field-label">Location</span><input name="location" value="Bengaluru" /></label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-head">
+              <div class="form-section-num">03</div>
+              <div>
+                <div class="form-section-title">Vision settings</div>
+                <div class="form-section-sub">Cost control for the vision pass</div>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label class="field full">
+                <span class="checkbox-row">
+                  <input type="checkbox" name="use_vision" value="true" checked />
+                  <span>Use vision (gpt-4o / gpt-5.2) to read plan PDF</span>
+                </span>
+              </label>
+              <label class="field"><span class="field-label">Max plan pages</span><input name="max_plan_pages" type="number" min="1" max="20" value="8" /></label>
+              <label class="field">
+                <span class="field-label">Vision detail</span>
+                <select name="vision_detail">
+                  <option value="auto" selected>auto</option>
+                  <option value="low">low (cheaper)</option>
+                  <option value="high">high (sharper)</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="14 2 14 8 20 8"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+              Generate Response Package
+            </button>
+            <div id="corrections-status" class="status"></div>
+          </div>
+        </form>
+
+        <div id="corrections-output" class="output"></div>
+      </section>
+
+      <!-- ============= VIEW: SAMPLES ============= -->
+      <section id="view-samples" class="view">
+        <div class="view-intro">
+          <h2>Sample Library</h2>
+          <p>Realistic Bengaluru test cases for both flows. Click any card to jump to the form pre-filled with that scenario.</p>
+        </div>
+
+        <div class="cards-grid-3">
+          <article class="case-card">
+            <div class="case-badge green">Pass · low risk</div>
+            <h3>Compliant 30×40 Whitefield</h3>
+            <p>Standard residential project — A-Khata, 30 ft road, G+2, 2,000 sq ft built-up. The expected output is "eligible to submit" via the Nambike Nakshe track.</p>
+            <ul class="case-keys">
+              <li>FAR within 1.75 limit</li>
+              <li>Front setback 0.75 m needed</li>
+              <li>EV charging required</li>
+            </ul>
+            <button class="ghost-btn" data-sample-link="compliant">Load this scenario →</button>
+          </article>
+          <article class="case-card">
+            <div class="case-badge red">Hard blocker</div>
+            <h3>B-Khata Blocker</h3>
+            <p>The most common real-world mistake — owner has B-Khata and doesn't realize the plan cannot be submitted. The agent should refuse and point to the conversion drive.</p>
+            <ul class="case-keys">
+              <li>Cannot submit (B-Khata)</li>
+              <li>Conversion drive started Nov 2025</li>
+              <li>~6% guidance-value cost</li>
+            </ul>
+            <button class="ghost-btn" data-sample-link="blocker">Load this scenario →</button>
+          </article>
+          <article class="case-card">
+            <div class="case-badge amber">Marginal · review</div>
+            <h3>Narrow-road Stilt+4</h3>
+            <p>14 ft road on a 40×60 plot. Tests whether the agent correctly applies the new GBA 2026 road-width relaxation (12-15 ft permitted vs. old 30 ft minimum).</p>
+            <ul class="case-keys">
+              <li>Fire NOC mandatory</li>
+              <li>OC required (>1,200 sq ft)</li>
+              <li>Structural NOC needed</li>
+            </ul>
+            <button class="ghost-btn" data-sample-link="marginal">Load this scenario →</button>
+          </article>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Sample PDFs for Flow 1</h3></div>
+          <div class="pdf-list">
+            <div class="pdf-row">
+              <svg class="pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <div>
+                <div class="pdf-title">Sample_BBMP_Corrections_Letter.pdf</div>
+                <div class="pdf-sub">11 KB · 1 page · 7 numbered objections (setbacks, FAR, EV parking, RWH, structural cert)</div>
+              </div>
+              <div class="pdf-loc"><code>samples/</code></div>
+            </div>
+            <div class="pdf-row">
+              <svg class="pdf-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <div>
+                <div class="pdf-title">Sample_Plan_Sheets.pdf</div>
+                <div class="pdf-sub">19 KB · 3 pages · Site Plan (intentional 0.6 m setback violation) · Floor Plan · Elevation</div>
+              </div>
+              <div class="pdf-loc"><code>samples/</code></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============= VIEW: RULES ============= -->
+      <section id="view-rules" class="view">
+        <div class="view-intro">
+          <h2>Karnataka Building Rules — Quick Reference</h2>
+          <p>The agent grounds every response in these rule files. To update for a new BBMP notification, edit the underlying markdown file — no retraining needed.</p>
+        </div>
+
+        <div class="cards-grid-2">
+          <article class="rule-card">
+            <div class="rule-card-head"><h3>Setback table</h3><span class="tag">setback-table.md</span></div>
+            <table class="data-table">
+              <thead><tr><th>Plot</th><th>Front</th><th>Side</th><th>Rear</th></tr></thead>
+              <tbody>
+                <tr><td>≤ 600 sq ft</td><td>0.75 m</td><td>0.6 m (one side)</td><td>None</td></tr>
+                <tr><td>30×40 (1,200)</td><td>1.2 m</td><td>0.9 m each</td><td>1.5 m</td></tr>
+                <tr><td>30×50 (1,500)</td><td>1.5 m</td><td>0.9 m each</td><td>1.5 m</td></tr>
+                <tr><td>40×60 (2,400)</td><td>1.5 m</td><td>1.2 m each</td><td>1.8 m</td></tr>
+                <tr><td>50×80 (4,000)</td><td>1.8 m</td><td>1.5 m each</td><td>2.4 m</td></tr>
+              </tbody>
+            </table>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card-head"><h3>FAR by zone</h3><span class="tag">far-table.md</span></div>
+            <table class="data-table">
+              <thead><tr><th>Zone</th><th>Use</th><th>Base FAR</th></tr></thead>
+              <tbody>
+                <tr><td>R</td><td>Single-family</td><td>1.75</td></tr>
+                <tr><td>RM-1</td><td>Mixed low density</td><td>2.25</td></tr>
+                <tr><td>RM-2</td><td>Mixed high density</td><td>2.75-3.25</td></tr>
+                <tr><td>C</td><td>Commercial</td><td>3.25-4.0</td></tr>
+                <tr><td>Mixed-use</td><td>Shop + residential</td><td>2.75</td></tr>
+              </tbody>
+            </table>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card-head"><h3>Khata rules</h3><span class="tag">khata-rules.md</span></div>
+            <ul class="rule-bullets">
+              <li><strong>A-Khata</strong> — fully compliant. Required for building plan approval.</li>
+              <li><strong>B-Khata</strong> — properties with violations. Cannot get building plan approved. Must convert to A-Khata first.</li>
+              <li><strong>E-Khata</strong> — electronic form. Mandatory since 1 July 2025 for all submissions.</li>
+              <li><strong>Conversion drive</strong> — 100-day B→A drive began 1 November 2025.</li>
+            </ul>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card-head"><h3>Nambike Nakshe</h3><span class="tag">nambike-nakshe.md</span></div>
+            <ul class="rule-bullets">
+              <li>Self-certification track for sites up to <strong>50×80 ft</strong></li>
+              <li>Residential only · A-Khata only</li>
+              <li>Licensed architect personally certifies the plan</li>
+              <li>Fast-track desk review by BBMP/GBA</li>
+              <li>Architect liability — false certification = license suspension + ₹2L+ fine</li>
+            </ul>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card-head"><h3>Parking (2026)</h3><span class="tag">parking-norms.md</span></div>
+            <ul class="rule-bullets">
+              <li>1 car per dwelling unit ≥ 1,000 sq ft</li>
+              <li>+10% visitor parking (multi-family)</li>
+              <li><strong>20% of spaces must have EV charging readiness</strong> (new in 2026)</li>
+              <li>Mechanized parking exempts ramp requirement</li>
+              <li>No parking in setback area</li>
+            </ul>
+          </article>
+          <article class="rule-card">
+            <div class="rule-card-head"><h3>KTCP Act 1961</h3><span class="tag">ktcp-act-1961.md</span></div>
+            <ul class="rule-bullets">
+              <li>State foundational law for urban planning</li>
+              <li><strong>§17</strong> — individual plots need planning authority approval for A-Khata</li>
+              <li>§18 — use of building must match zone</li>
+              <li>§19 — authority approves or rejects plans</li>
+              <li>§76 — penalty for unauthorized development</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============= VIEW: ABOUT ============= -->
+      <section id="view-about" class="view">
+        <div class="view-intro">
+          <h2>About CrossBeam-India</h2>
+          <p>AI assistant that helps Bengaluru architects get building plans approved on the first try. Built on Azure OpenAI, FastAPI, and a skills-first architecture.</p>
+        </div>
+
+        <div class="cards-grid-2">
+          <article class="panel">
+            <div class="panel-head"><h3>Tech stack</h3></div>
+            <ul class="rule-bullets">
+              <li><strong>Backend</strong> — Python 3.10 · FastAPI 0.115 · Uvicorn</li>
+              <li><strong>LLM</strong> — Azure OpenAI (gpt-4o / gpt-5.2)</li>
+              <li><strong>Vision</strong> — PyMuPDF renders pages to JPEG · sent to vision API</li>
+              <li><strong>Text PDFs</strong> — pypdf for corrections letters</li>
+              <li><strong>Frontend</strong> — vanilla HTML / CSS / JS · Inter font</li>
+              <li><strong>Config</strong> — python-dotenv · pydantic validation</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Inspired by</h3></div>
+            <p>The original <strong>CrossBeam</strong> by Michael Brown — winner of Anthropic's "Built with Opus 4.6" Hackathon (Feb 2026), targeting California ADU permits. This project ports the same architecture to BBMP/GBA residential approvals in Bengaluru, with a Karnataka-specific skills layer and Azure OpenAI in place of Anthropic.</p>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>What's grounded</h3></div>
+            <ul class="rule-bullets">
+              <li>KTCP Act 1961 (Sections 14B, 17, 18, 19, 24, 76)</li>
+              <li>Revised Master Plan (RMP) 2015 zonal designations</li>
+              <li>Amended Zonal Regulations effective 5 Jan 2026</li>
+              <li>BBMP Building Bye-Laws 2003 (amended)</li>
+              <li>Greater Bengaluru Governance Act 2024</li>
+              <li>National Building Code 2016 references</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><h3>Status</h3></div>
+            <p>Prototype. Built as a demonstration of how AI agents can be grounded in jurisdiction-specific regulations using a skills-first architecture.</p>
+            <p>Not a substitute for a licensed architect's professional judgment. Always verify outputs before submitting to BBMP/GBA.</p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
