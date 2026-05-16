@@ -13,7 +13,7 @@ This is a local, runnable prototype built on Python + FastAPI + Azure OpenAI.
 ### Prerequisites
 
 - Python 3.10 or higher
-- An **Azure OpenAI** resource with at least one chat-model deployment (e.g., `gpt-4o`, `gpt-4o-mini`, or `gpt-4-turbo`)
+- An **Azure OpenAI** resource with at least one chat-model deployment (e.g., `gpt-4o`, `gpt-4.1`, or `gpt-5.2 etc`)
   - You'll need: endpoint URL, API key, deployment name, and API version
 - 5 minutes
 
