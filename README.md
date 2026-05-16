@@ -20,7 +20,7 @@ This is a local, runnable prototype built on Python + FastAPI + Azure OpenAI.
 ### 1. Clone / open this folder
 
 ```bash
-cd PlanPass-india
+cd Permit Setu-india
 ```
 
 ### 2. Create a virtual environment and install dependencies
