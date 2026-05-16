@@ -56,7 +56,7 @@ Open `.env` and fill in your real values:
 ```
 AZURE_OPENAI_ENDPOINT=https://YOUR_RESOURCE_NAME.openai.azure.com/
 AZURE_OPENAI_API_KEY=your-real-api-key-here
-AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4o            # the DEPLOYMENT name, not the model name
+AZURE_OPENAI_DEPLOYMENT_NAME=gpt-5.2            # the DEPLOYMENT name, not the model name
 AZURE_OPENAI_VISION_DEPLOYMENT_NAME=           # optional - leave blank to reuse main deployment
 AZURE_OPENAI_API_VERSION=2024-10-21
 ```
@@ -75,13 +75,12 @@ Flow 1 (corrections interpreter) can read your architectural plan PDFs page-by-p
 | Model | Vision support |
 |-------|---------------|
 | **gpt-4o** | Yes (recommended) |
-| **gpt-4o-mini** | Yes (cheaper, slightly less accurate) |
-| **gpt-4-turbo** (with vision) | Yes |
-| gpt-35-turbo / gpt-4 (text-only) | No |
+| **gpt-4.1** | Yes (cheaper, slightly less accurate) |
+| **gpt-5.2** (with vision) | Yes |
 
 If your main deployment is already vision-capable, leave `AZURE_OPENAI_VISION_DEPLOYMENT_NAME` blank. If you have a separate deployment for vision (e.g., `gpt-4o-mini` for vision and `gpt-4o` for text), set it explicitly.
 
-If you don't have a vision-capable deployment, untick **"Use vision (gpt-4o) to read plan PDF"** in the UI and the system falls back to text-only extraction.
+If you don't have a vision-capable deployment, untick **"Use vision (gpt-5.2) to read plan PDF"** in the UI and the system falls back to text-only extraction.
 
 ### 4. Run the server
 
@@ -245,7 +244,7 @@ Check the browser console. The badge in the top right will say "Config issue" if
 
 ### Long response times (60-90 sec)
 
-This is normal for the corrections flow — the model is reading the full rules + corrections letter and writing a long structured response. Use a faster deployment (`gpt-4o-mini`) for snappier responses during development.
+This is normal for the corrections flow — the model is reading the full rules + corrections letter and writing a long structured response. Use a faster deployment (`gpt-5.2`) for snappier responses during development.
 
 ---
 
